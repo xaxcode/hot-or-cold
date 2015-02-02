@@ -3,31 +3,35 @@ $(document).ready(function(){
 	
 	
 	/*--- Start Game ---*/
-
 function newGame() {
-      randomNumber = newNumber();
-      console.log(randomNum);
+  randomNumber = generateNumber();
+  console.log(randomNumber);
 
 
-$( window ).load(function(){
-		var newNumber = Math.floor((Math.random() * 100) + 1);
-		console.log("New Number :" + newNumber);
+function generateNumber(){
+		var generateNumber = Math.floor((Math.random() * 100) + 1);
+		console.log("New Number :" + generateNumber);
 
-     return newNumber;
-} 
+     return generateNumber;
+}
 
 
-
+/*
 $("#guessButton").click(function(){
  		var z = $("input#userGuess").val();
  		console.log("z :" + z);
  		if 		(z <= 100) {
 				$("#feedback").text(z);
-          clearText;
-          event,preventDefault();
+        clearText;
+        event,preventDefault();
+    }
+}); 
+*/
+
+
+function clearText() {
+    $("userGuess").val('');
 }
-
-
 
   /*--- Guess Counter ---*/
 $("guessButton").click(function(){
@@ -40,9 +44,9 @@ $("guessButton").click(function(){
     clearText;
     event.preventDefault();
 
-		var differenceNum = Math.abs(newNumber - z);
+		var differenceNum = Math.abs(generateNumber - z);
     console.log(differenceNum);
-    if (z === newNumber) {
+    if (z === generateNumber) {
         $("#feedback").text("Nailed It!");
     }
     else if (differenceNum >= 50) {
@@ -51,9 +55,8 @@ $("guessButton").click(function(){
     else if (differenceNum >= 30) {
        $("#feedback").text("warmer")
     }
-    else (differenceNum >= 10) {
+    else { (differenceNum >= 10) 
         $("#feedback").text("hot!");
-    }
 }
 
 
@@ -61,23 +64,21 @@ function guessCheck(z) {
   if (isNan(z)) {
     $("#feedback").text("use a number")
   }
+  else {
+    return z;
+  }
 }
 
 }); 
 
-}
 
-function clearText() {
-    $("userGuess").val('');
-}
-
-	/*--- New Game ---*/
+/*--- New Game ---*/
 
 
 $(".new").click(function(){
 	event.preventDefault();
    newGame();
-});
+}); 
 
     /*--- Display information modal box ---*/
     $(".what").click(function(){
@@ -89,4 +90,6 @@ $(".new").click(function(){
     $("a.close").click(function(){
       $(".overlay").fadeOut(1000);
     });
-});
+}); 
+
+
