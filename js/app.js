@@ -6,7 +6,6 @@ $(document).ready(function(){
       event.preventDefault();
       $("#userGuess").val(" ");
       ranNum = Math.floor((Math.random() * 100) + 1);
-      //count = 0;
       $("#count").text(0);
       count = 0;
     }
